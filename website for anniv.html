@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Denver ❤ Carmela — Anniversary</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --accent:#ec4899;
+      --accent-2:#8b5cf6;
+      --bg:#0b1020;
+      --card:#11162a;
+      --text:#e6e7ee;
+      --muted:#9aa3b2;
+      --hero-src: url('assets/hero.jpg');
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Poppins,system-ui; color:var(--text);
+      background:radial-gradient(1200px 800px at 10% -10%, #1b2142 0%, #0b1020 40%, #060914 100%) fixed;
+      -webkit-font-smoothing: antialiased;
+    }
+    a{color:inherit; text-decoration:none}
+    .container{width:min(1100px,92%); margin-inline:auto}
+    header{position:sticky; top:0; z-index:20; background:rgba(6,9,20,.6); backdrop-filter: blur(10px); border-bottom:1px solid rgba(255,255,255,.06)}
+    .brand{display:flex; align-items:center; gap:.6rem; padding:.8rem 0}
+    .brand .logo{width:36px; height:36px; display:grid; place-items:center; border-radius:10px; background:linear-gradient(135deg,var(--accent),var(--accent-2)); font-weight:700}
+    .brand h1{font-family:'Playfair Display',serif; font-size:1.1rem; margin:0}
+    nav{display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:.6rem; padding:.2rem 0 .8rem 0}
+    .tabs{display:flex; gap:.4rem; flex-wrap:wrap}
+    .tab{cursor:pointer; border:1px solid rgba(255,255,255,.08); background:#0d1326; color:#dfe3ee; padding:.45rem .8rem; border-radius:999px; font-size:.9rem; transition:.2s; flex:1 1 auto; text-align:center}
+    .tab:hover{transform:translateY(-1px); border-color:rgba(255,255,255,.18)}
+    .tab.active{background:linear-gradient(135deg, rgba(236,72,153,.25), rgba(139,92,246,.25)); border-color:transparent}
+    main{isolation:isolate}
+    section{display:none; min-height:calc(100vh - 110px); padding:2rem 0 3.5rem}
+    section.active{display:block}
+    .hero{position:relative; display:grid; place-items:center; overflow:hidden; border-radius:22px; margin-top:1rem; background:#0c1226; box-shadow:0 20px 60px rgba(0,0,0,.4), inset 0 0 0 1px rgba(255,255,255,.05)}
+    .hero::before{content:""; position:absolute; inset:0; background-image: var(--hero-src); background-size:cover; background-position:center; filter: saturate(1.05) contrast(1.05) brightness(.9); transform:scale(1.03)}
+    .hero::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(6,9,20,.3) 0%, rgba(6,9,20,.55) 45%, rgba(6,9,20,.9) 100%), radial-gradient(800px 400px at 80% -10%, rgba(236,72,153,.35), transparent 60%)}
+    .hero-inner{position:relative; z-index:2; text-align:center; padding:min(12vh,6rem) 1rem}
+    .title{font-family:'Playfair Display',serif; font-size:clamp(1.8rem, 5vw + .5rem, 3.2rem); margin:.2rem 0 .8rem; line-height:1.1}
+    .subtitle{color:var(--muted); font-size:clamp(.9rem, 1.1vw + .6rem, 1.15rem); max-width:55ch; margin-inline:auto}
+    .badges{display:flex; gap:.6rem; justify-content:center; flex-wrap:wrap; margin-top:1rem}
+    .chip{font-size:.8rem; padding:.3rem .65rem; border-radius:999px; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.12)}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.08); border-radius:18px; padding:1rem; box-shadow:0 10px 30px rgba(0,0,0,.25)}
+    .grid{display:grid; gap:1rem}
+    @media(min-width:800px){ .grid.two{grid-template-columns:1fr 1fr} }
+    .video-wrap {aspect-ratio: 9/16; width:100%; max-width:400px; margin:0 auto; border-radius:16px; overflow:hidden; border:1px solid rgba(255,255,255,.08); box-shadow:0 10px 30px rgba(0,0,0,.35);}
+    video{display:block;width:100%;height:100%;object-fit:cover;background:#000}
+    .love-note{font-size:1rem; line-height:1.6}
+    .script{font-family:'Playfair Display',serif; font-size:1.3rem}
+    .invite{display:grid; gap:1rem}
+    @media(min-width:880px){.invite{grid-template-columns:1.1fr .9fr; align-items:stretch}}
+    .invite-card{position:relative; overflow:hidden}
+    .ribbon{position:absolute; top:18px; right:-40px; rotate:20deg; background:linear-gradient(135deg,var(--accent),var(--accent-2)); color:white; padding:.3rem 2.5rem; font-weight:700; letter-spacing:.5px; box-shadow:0 10px 30px rgba(0,0,0,.25)}
+    footer{padding:1.5rem 0; color:var(--muted); text-align:center; font-size:.85rem}
+    .heart{display:inline-block; animation:beat 1.4s infinite ease-in-out}
+    @keyframes beat{0%,100%{transform:scale(1)} 30%{transform:scale(1.15)}}
+    #music-btn{position:fixed;bottom:20px;right:20px;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:white;border:none;border-radius:50%;width:55px;height:55px;font-size:1.4rem;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,.35);z-index:50;transition:transform .2s}
+    #music-btn:hover{transform:scale(1.1)}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="brand">
+          <div class="logo">❤</div>
+          <h1>Denver & Carmela</h1>
+        </div>
+        <div class="tabs" role="tablist">
+          <button class="tab active" data-target="home">Home</button>
+          <button class="tab" data-target="video">Video</button>
+          <button class="tab" data-target="message">Message</button>
+          <button class="tab" data-target="invitation">Invitation</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="home" class="active">
+      <div class="hero">
+        <div class="hero-inner">
+          <div class="badges">
+            <span class="chip">Since 2015</span>
+            <span class="chip">Best Friends & Partners</span>
+            <span class="chip">Forever Us</span>
+          </div>
+          <h2 class="title">Happy Anniversary, Lover</h2>
+          <p class="subtitle">This little website is my love letter to you — with our memories, message, and invitation.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="video">
+      <h2>Our Cute Memories 🎞️</h2>
+      <div class="video-wrap">
+        <video controls preload="metadata" poster="assets/poster.jpg">
+          <source src="assets/memories.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </section>
+
+    <section id="message">
+  <div class="grid">
+    <div class="card">
+      <h2>A Message for You (Please tap the music icon)💌</h2>
+      <div class="love-note">
+        <p><strong>Happy Anniversary, Lover! ❤️</strong></p>
+
+        <p>Naalala ko pa talaga yung unang araw na nagkakilala tayo, October 17, 2015, araw ng binyag natin. Noon, hindi pa tayo ganoon ka-close at kahit sa isip ko, hindi ko talaga inakala na ikaw pala ang magiging asawa ko balang araw. Para sa akin, isa ka lang sa mga kasama ko sa simbahan, pero unti-unti pala tayong naging magkaibigan at sabay na nag-nurture ng testimonya natin sa ebanghelyo.</p>
+
+        <p>Lumipas ang panahon at dumating yung panawagan na mag-mission tayo. Doon nasubok ang closeness natin kasi naging long distance tayo. Mahirap, kasi kailangan nating isantabi ang personal nating oras para mauna ang paglilingkod sa Diyos. Pero napagtanto ko na yun pala ang malaking stepping stone para sa kinabukasan natin. Naging oportunidad siya para pareho tayong matutong magsakripisyo, magtiwala, at mas lalong maging matatag sa pananampalataya. Natapos natin ang mission na puno ng napakaraming aral tungkol sa buhay at tungkol sa ebanghelyo, at dala-dala natin yun hanggang ngayon.</p>
+
+        <p>Pag-uwi ko mula sa mission, doon nagsimula ang panibagong kabanata ng journey natin. Nagdesisyon akong gumawa ng move at aminin sa sarili ko na gusto kitang ligawan. Kinabahan ako sobra, lalo na noong kinausap ko ang parents mo para humingi ng permiso. Hindi ko makakalimutan yung kaba na ramdam ko mula ulo hanggang paa, at sabay na naroon din yung kasiyahan na hindi ko maipaliwanag. Hindi ko rin alam kung tatanggapin mo ako, pero naalala ko yung sinabi mo dati na yung best feeling mo ay nararanasan mo sa templo. Kaya sa templo ako nag-propose, at kahit maingay ang paligid malapit doon, ang narinig ko lang ay ang matamis mong "OO." Yun ang isa sa mga pinakamasayang alaala ng buhay ko.</p>
+
+        <p>Doon na nagsimula ang mga plano natin. Nagkaroon tayo ng prenup, nagsimula ng preparations para sa kasal. Kahit hindi naging madali ang lahat, nakayanan natin dahil sabay tayong lumaban at nagtiwala sa isa’t isa. Dumating ang araw ng kasal natin, at hanggang ngayon, hindi ko makakalimutan yung pakiramdam. Halos hindi ako nagugutom kahit nasa venue na tayo kasi puno ng excitement at saya ang puso ko. Doon natin sinelyuhan ang covenant na ginawa natin sa templo, isang pangakong hindi lang para sa ngayon kundi para sa eternity.</p>
+
+        <p>Ngayon, heto tayo. Mag-asawa, magkasama sa laban ng buhay, at patuloy na nag-sstrive at nag-nourish ng mga goals natin bilang eternal companions. Maraming pagsubok, maraming challenges, pero hindi ako natatakot dahil ikaw ang kasama ko.</p>
+
+        <p>Carmela, I am so happily and eternally grateful sa’yo. Salamat sa lahat ng suporta mo, sa mga advice na laging tama at timely, sa push mo tuwing down ako, sa pagiging handa mong makinig sa lahat ng hinaing at kwento ko, at higit sa lahat, sa pagmamahal mo na walang sawa. Hindi ko kayang sukatin kung gaano kalaki ang blessing na dumating sa buhay ko nang ikaw ang naging asawa ko.</p>
+
+        <p>Mahal na mahal kita, Lover. Salamat dahil araw-araw, pinipili mong ako ang makasama. Salamat dahil hindi lang tayo partners dito sa mundo kundi companions din hanggang sa eternity.</p>
+
+        <p><strong>Happy Anniversary, my forever! 💙</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    <section id="invitation">
+      <div class="invite">
+        <div class="card invite-card">
+          <span class="ribbon">You + Me</span>
+          <h2>Anniversary Date Invitation 📅</h2>
+          <p class="subtitle">Because every year with you deserves a celebration.</p>
+          <div class="grid two">
+            <div>
+              <h3>When</h3>
+              <p><strong>Saturday, September 06, 2025</strong><br> Pag free kana hahaha</p>
+              <h3>Where</h3>
+              <p><strong>Secret Spot</strong> (Sa bahay ang intayan hahaha)<br> Lucban, Quezon</p>
+            </div>
+            <div>
+              <h3>Dress Code</h3>
+              <p>Kung ano prefer mo at comfortable ka (I like you in any clothes you wear)</p>
+              <h3>Plan</h3>
+              <p>Dinner, gala, and pictures!</p>
+            </div>
+          </div>
+          <p><a href="mailto:sanji3109@gmail.com?subject=Yes%20to%20our%20Anniversary%20Date!" class="tab">RSVP: Email me your yes 💫</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Made with <span class="heart">❤</span> by your lover for you — <span id="year"></span>
+  </footer>
+
+  <audio id="bg-music" src="assets/music.mp3" loop></audio>
+  <button id="music-btn" title="Play/Pause Music">🎵</button>
+
+  <script>
+    const tabs = document.querySelectorAll('.tab');
+    const sections = document.querySelectorAll('main section');
+    function activate(id){
+      sections.forEach(s=>s.classList.toggle('active', s.id===id));
+      tabs.forEach(t=>{
+        const on = t.dataset.target === id;
+        if(t.dataset.target) t.classList.toggle('active', on);
+      });
+      history.replaceState(null, '', '#' + id);
+    }
+    tabs.forEach(t=> t.addEventListener('click', ()=> activate(t.dataset.target)) );
+    const start = location.hash?.replace('#','') || 'home';
+    if(document.getElementById(start)) activate(start);
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const music = document.getElementById('bg-music');
+    const musicBtn = document.getElementById('music-btn');
+    let isPlaying = false;
+    musicBtn.addEventListener('click', () => {
+      if (isPlaying) {
+        music.pause();
+        musicBtn.textContent = "🎵";
+      } else {
+        music.play();
+        musicBtn.textContent = "⏸️";
+      }
+      isPlaying = !isPlaying;
+    });
+  </script>
+</body>
+</html>
