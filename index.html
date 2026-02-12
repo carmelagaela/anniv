@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Valentine ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  background: radial-gradient(circle at top, #5b2a86, #2b2d6e);
+  color:white;
+  overflow-x:hidden;
+}
+
+/* Floating Hearts */
+.heart{
+  position:fixed;
+  bottom:-20px;
+  font-size:20px;
+  animation:float 8s linear infinite;
+  opacity:.6;
+}
+@keyframes float{
+  0%{transform:translateY(0) scale(.5);}
+  100%{transform:translateY(-110vh) scale(1.2);}
+}
+
+/* Glass Effect */
+.glass{
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(18px);
+  border-radius:25px;
+  box-shadow:0 8px 32px rgba(0,0,0,0.3);
+  border:1px solid rgba(255,255,255,0.4);
+  color:#ffffff;
+}
+
+/* Sections */
+section{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  padding:40px 20px;
+  text-align:center;
+}
+
+/* ===== SLIDER ===== */
+.slider{
+  position:relative;
+  width:320px;
+  height:400px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.slider img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:20px;
+  border:4px solid rgba(255,255,255,0.6);
+  box-shadow:0 0 25px pink;
+  transition:0.4s;
+}
+
+.nav{
+  position:absolute;
+  background:rgba(255,255,255,0.3);
+  backdrop-filter:blur(10px);
+  border:none;
+  font-size:28px;
+  padding:8px 14px;
+  border-radius:50%;
+  cursor:pointer;
+  color:white;
+}
+
+.left{ left:-20px; }
+.right{ right:-20px; }
+
+.nav:hover{
+  transform:scale(1.2);
+}
+
+/* Letter */
+.letter{
+  max-width:850px;
+  padding:60px;
+  line-height:1.8;
+  font-size:22px;
+  font-family:'Great Vibes',cursive;
+  animation:fade 2s ease;
+}
+
+@keyframes fade{
+  from{opacity:0;transform:translateY(20px);}
+  to{opacity:1;}
+}
+
+/* Cards */
+.cards{
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.card{
+  width:300px;
+  padding:25px;
+  transition:.4s;
+}
+.card:hover{
+  transform:translateY(-10px) scale(1.05);
+  box-shadow:0 0 25px pink;
+}
+.card img{
+  width:100%;
+  border-radius:15px;
+}
+
+/* Buttons */
+button{
+  padding:14px 30px;
+  border:none;
+  border-radius:25px;
+  cursor:pointer;
+  margin:10px;
+  font-size:18px;
+  background:linear-gradient(45deg,#ff9edb,#bba9ff);
+  color:white;
+  box-shadow:0 0 10px white;
+  transition:.3s;
+}
+button:hover{transform:scale(1.1);}
+
+/* Music Toggle */
+.music{
+  position:fixed;
+  top:15px;
+  right:15px;
+}
+
+/* Success */
+.success{
+  display:none;
+  font-size:28px;
+  margin-top:20px;
+  animation:fade 1s;
+}
+
+/* Dancing Video */
+.dance{
+  display:none;
+  margin-top:20px;
+}
+.dance video{
+  width:300px;
+  border-radius:20px;
+  box-shadow:0 0 25px pink;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Floating Hearts -->
+<script>
+for(let i=0;i<20;i++){
+  let heart=document.createElement("div");
+  heart.className="heart";
+  heart.innerHTML="❤️";
+  heart.style.left=Math.random()*100+"vw";
+  heart.style.animationDuration=(5+Math.random()*5)+"s";
+  document.body.appendChild(heart);
+}
+</script>
+
+<!-- Music -->
+<audio id="music" loop>
+  <source src="music.mp3" type="audio/mp3">
+</audio>
+<button class="music" onclick="toggleMusic()">🎵</button>
+
+<!-- HERO WITH SLIDER -->
+<section class="hero">
+  <div class="glass" style="padding:60px; max-width:700px; width:95%;">
+
+    <div class="slider">
+      <button class="nav left" onclick="prevImage()">❮</button>
+      <img id="sliderImage" src="photo1.jpg">
+      <button class="nav right" onclick="nextImage()">❯</button>
+    </div>
+
+    <p>
+      Every moment with you feels like magic.<br>
+      You are my favorite memory and my sweetest future.<br>
+      Happy Valentine’s, my love.
+    </p>
+
+  </div>
+</section>
+
+<!-- LETTER -->
+<section>
+  <div class="glass letter">
+    <h1>My Letter of Love</h1><br>
+    Happy Valentine’s Day, my love.
+    Looking at the pictures above, from the very beginning you were already there, and until now, it is still you. We have faced so many trials and challenges, but our love only grew stronger and deeper through each one. Every photo is a reminder of how far we have come together and how beautiful our journey has been. No matter how much time passes, the person beside me is still the same woman I chose and will always choose.<br><br>
+    I may not say it every day, but you are one of the greatest blessings in my life. When I think about our story, I realize that what we have is more than just a simple love story. It is a testimony that when God is at the center of a relationship, everything becomes more meaningful, more genuine, and more enduring.<br><br>
+    I am grateful for you every single day. You are not only my wife, but also my best friend, my partner in every battle, and my inspiration to become better. We have experienced happiness, exhaustion, misunderstandings, and victories, yet in every season of our lives, I always see you standing beside me. You never left me in my weakest moments. Instead, you became my strength when I had none left.<br><br>
+    I admire your patience, your kindness, and the sincerity of your heart. You love in such a quiet yet powerful way. In your simple gestures of concern, in the way you listen to my endless stories, in your wise advice, and in your warm hugs when I am tired, I am reminded of how incredibly blessed I am to have you as my wife. <br><br>
+    Whether it is Valentine’s Day or just an ordinary day, it feels the same to me because I choose you every day. Not only because I love you, but because I respect you and truly value you. You are the person I want to talk to when life feels heavy, the one I want to celebrate with when life is good, and the one I want beside me even in the quietest moments.<br><br>
+    Thank you for loving me in a way that does not hold me back but instead lifts me up. Thank you for supporting my dreams and believing in me even when I struggle to believe in myself. Because of you, I strive to be a better man, a better husband, and a better servant of God. <br><br>
+    On this day of hearts, I just want to remind you that my love for you is not only for today. I loved you yesterday, I love you today, and I will continue loving you in all the days to come. You are my peace, my home, and my forever.<br><br>
+    Happy Valentine’s Day, my asawa. I love you more than words can ever express. ❤️
+  </div>
+</section>
+
+<!-- EXPECT -->
+<section>
+  <h1>What to Expect</h1><br>
+  <div class="cards">
+    <div class="glass card">
+      <img src="dinner.jpg">
+      <h3>Dinner</h3>
+      <p>A cozy romantic dinner filled with laughter and love.</p>
+    </div>
+
+    <div class="glass card">
+      <img src="flower.jpg">
+      <h3>Flowers</h3>
+      <p>Beautiful blooms to match your beauty.</p>
+    </div>
+
+    <div class="glass card">
+      <img src="massage.jpg">
+      <h3>Massage</h3>
+      <p>A relaxing moment just for you.</p>
+    </div>
+  </div>
+</section>
+
+<!-- INVITATION -->
+<section>
+  <div class="glass" style="padding:60px; position:relative;">
+    <h1>Will You Be My Valentine?</h1><br>
+    <button id="yes">YES</button>
+    <button id="no">NO</button>
+    <div class="success" id="success">
+      I knew you’d say YES ❤️
+    </div>
+
+    <div class="dance" id="dance">
+      <video id="danceVideo" loop autoplay muted>
+        <source src="dance.mp4" type="video/mp4">
+      </video>
+    </div>
+
+  </div>
+</section>
+
+<script>
+/* MUSIC */
+function toggleMusic(){
+  const music=document.getElementById("music");
+  music.paused?music.play():music.pause();
+}
+
+/* SLIDER */
+const images=["photo1.jpg","photo2.jpg","photo3.jpg","photo4.jpg","photo5.jpg","photo6.jpg","photo7.jpg","photo8.jpg","photo9.jpg","photo10.jpg","photo11.jpg","photo12.jpg"];
+let currentIndex=0;
+const sliderImage=document.getElementById("sliderImage");
+
+function showImage(i){ sliderImage.src=images[i]; }
+function nextImage(){ currentIndex=(currentIndex+1)%images.length; showImage(currentIndex); }
+function prevImage(){ currentIndex=(currentIndex-1+images.length)%images.length; showImage(currentIndex); }
+
+/* BUTTON LOGIC */
+let yes=document.getElementById("yes");
+let no=document.getElementById("no");
+let success=document.getElementById("success");
+let dance=document.getElementById("dance");
+let danceVideo=document.getElementById("danceVideo");
+let noClicks=0;
+
+no.addEventListener("click",()=>{
+  noClicks++;
+  yes.style.transform=`scale(${1+noClicks*0.25})`;
+  no.style.position="absolute";
+  no.style.left=Math.random()*95+"%";
+  no.style.top=Math.random()*95+"%";
+  if(noClicks>=6){ no.style.display="none"; }
+});
+
+yes.addEventListener("click",()=>{
+  success.style.display="block";
+  dance.style.display="block";
+  danceVideo.play();
+  document.body.style.background="radial-gradient(circle,#ff7ad9,#7aa2ff)";
+});
+</script>
+
+</body>
+</html>
